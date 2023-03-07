@@ -25,3 +25,17 @@ for i in range(len(num_ins_list)):
     plt.title("Auc: " + str(num_ins) + " instances per bag")
 save_dir = r"C:\\Users\\sanyo\\OneDrive - connect.hku.hk\\Codes\\IndividualizedRegionSelectionMIL\\res_data"
 plt.savefig(Path(save_dir,"MNIST_ss.pdf"), dpi = 300, bbox_inches = "tight", pad_inches = 0)
+
+## ----------- another example for plot grid 
+fig,ax = plt.subplots(figsize = (8,4))
+ax = plt.subplot(1,2,1)
+plt.imshow(ori_test[k],"gray");
+ax = plt.subplot(1,2,2)
+plt.imshow(np.array(g_test[k]),"gray");
+grid_size = (d1,d2) 
+ax.xaxis.set_major_locator(ticker.IndexLocator(offset=0, base=d1));
+ax.yaxis.set_major_locator(ticker.IndexLocator(offset=0, base=d2));
+ax.grid(which='major', axis='both', linewidth=0.7, linestyle='-.', color='w');
+ax.tick_params(bottom=False, top=False, left=False, right=False);
+ax.set_xticklabels([]);
+ax.set_yticklabels([]);
